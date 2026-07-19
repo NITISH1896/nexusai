@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Primary SEO Metadata -->
+  <title>NexusAI | Enterprise Autonomous AI Agent Infrastructure</title>
+  <meta name="description" content="NexusAI is the next-generation autonomous AI agent infrastructure for enterprise workflows. Scale, route, and secure neural pipelines with multi-LLM orchestration.">
+  <link rel="canonical" href="https://nexusai.example.com">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="NexusAI | Enterprise Autonomous AI Agent Infrastructure">
+  <meta property="og:description" content="Build, route, and secure autonomous AI agent workflows across multi-LLM environments with enterprise-grade protection.">
+  <meta property="og:image" content="https://nexusai.example.com/assets/images/og-share.jpg">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:title" content="NexusAI | Enterprise Autonomous AI Agent Infrastructure">
+  <meta property="twitter:description" content="Build, route, and secure autonomous AI agent workflows across multi-LLM environments with enterprise-grade protection.">
+  
+  <!-- Favicon placeholder -->
+  <link rel="icon" type="image/png" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            // Mapping slate-950 to pure black and slate-900 to neutral dark grey to eliminate blue hues
+            slate: {
+              900: '#161617',
+              950: '#000000',
+            },
+            neutral: {
+              950: '#000000',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-[var(--bg-primary)] text-[var(--text-primary)] transition-colors duration-300">
+
+  <!-- Custom Brand Loader Overlay -->
+  <div id="loader-overlay" aria-hidden="true">
+    <div class="pulse-spinner mb-4"></div>
+    <div class="text-sm font-bold tracking-widest text-[var(--text-primary)]">NEXUS AI</div>
+    <div class="text-xs text-[var(--text-secondary)] mt-1">Initializing Infrastructure...</div>
+  </div>
+
+  <!-- Header & Navigation -->
+  <header class="floating-header">
+    <div class="w-full px-6 md:px-8">
+      <div class="flex items-center justify-between h-16">
+        
+        <!-- Text-only Logo -->
+        <a href="#hero" class="flex items-center group" aria-label="NexusAI Homepage">
+          <span class="text-xl font-extrabold tracking-tight text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-200">NexusAI</span>
+        </a>
+
+        <!-- Desktop Navigation Items -->
+        <nav class="hidden md:flex items-center space-x-8" aria-label="Main Navigation">
+          <a href="#features" class="nav-link text-sm font-medium text-slate-600 hover:text-slate-950 dark:text-gray-400 dark:hover:text-white transition-colors py-2">Features</a>
+          <a href="#about" class="nav-link text-sm font-medium text-slate-600 hover:text-slate-950 dark:text-gray-400 dark:hover:text-white transition-colors py-2">Vision</a>
+          <a href="#testimonials" class="nav-link text-sm font-medium text-slate-600 hover:text-slate-950 dark:text-gray-400 dark:hover:text-white transition-colors py-2">Testimonials</a>
+          <a href="#faq" class="nav-link text-sm font-medium text-slate-600 hover:text-slate-950 dark:text-gray-400 dark:hover:text-white transition-colors py-2">FAQ</a>
+        </nav>
+
+        <!-- Desktop Action Buttons -->
+        <div class="hidden md:flex items-center space-x-4">
+          <!-- Light/Dark Toggle -->
+          <button id="theme-toggle" class="p-2.5 rounded-full border border-gray-300 dark:border-gray-800 hover:bg-slate-200/50 dark:hover:bg-gray-800/50 hover:border-gray-400 dark:hover:border-gray-700 transition-all shadow-sm" aria-label="Toggle Dark/Light Mode">
+            <i id="theme-icon-sun" data-lucide="sun" class="w-4 h-4 text-blue-650 dark:text-blue-400"></i>
+            <i id="theme-icon-moon" data-lucide="moon" class="w-4 h-4 text-blue-650 dark:text-blue-400 hidden"></i>
+          </button>
+          
+          <a href="#login" class="text-sm font-medium text-slate-600 hover:text-slate-950 dark:text-gray-305 dark:hover:text-white transition-colors px-4 py-2">Login</a>
+          
+          <a href="#contact" class="bg-blue-600 hover:bg-blue-700 active:scale-95 text-white text-sm font-semibold px-6 py-2 rounded-full flex items-center space-x-2 transition-all shadow-sm shadow-blue-500/10">
+            <span>Start Free Trial</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </a>
+        </div>
+
+        <!-- Mobile Menu Trigger -->
+        <div class="flex items-center space-x-4 md:hidden">
+          <button id="mobile-theme-toggle" class="p-2 rounded-lg border border-gray-300 dark:border-gray-850 hover:bg-slate-200/50 dark:hover:bg-gray-800/50" onclick="document.getElementById('theme-toggle').click()" aria-label="Toggle Mode Mobile">
+            <i data-lucide="palette" class="w-4 h-4 text-blue-600 dark:text-blue-400"></i>
+          </button>
+          
+          <button id="mobile-menu-btn" class="p-2 rounded-lg text-slate-600 hover:text-slate-950 dark:text-gray-400 dark:hover:text-white hover:bg-slate-200/50 dark:hover:bg-gray-800 focus:outline-none" aria-expanded="false" aria-controls="mobile-nav" aria-label="Toggle Mobile Menu">
+            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path class="hamburger-line hamburger-line-1" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16" />
+              <path class="hamburger-line hamburger-line-2" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 12h16" />
+              <path class="hamburger-line hamburger-line-3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 18h16" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Viewport Navigation Panel -->
+  <div id="mobile-nav" class="fixed inset-y-0 right-0 w-full max-w-[300px] bg-white/95 dark:bg-[#141416]/95 backdrop-blur-xl border-l border-slate-200 dark:border-[#2C2C2E] p-8 z-50 transform translate-x-full transition-transform duration-300 ease-in-out shadow-2xl flex flex-col md:hidden" aria-hidden="true">
+    <div class="flex items-center justify-between pb-6 border-b border-slate-200 dark:border-gray-800">
+      <span class="text-xl font-bold tracking-tight text-slate-900 dark:text-white">NexusAI</span>
+      <button id="mobile-menu-close" class="p-2 text-slate-500 hover:text-slate-950 dark:text-gray-400 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-gray-800 rounded-lg transition-colors" onclick="document.getElementById('mobile-menu-btn').click()" aria-label="Close menu">
+        <i data-lucide="x" class="w-6 h-6"></i>
+      </button>
+    </div>
+    
+    <nav class="flex flex-col space-y-6 mt-8 flex-grow" aria-label="Mobile Navigation Panel">
+      <a href="#features" class="mobile-nav-link text-lg font-medium text-slate-700 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition-colors">Features</a>
+      <a href="#about" class="mobile-nav-link text-lg font-medium text-slate-700 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition-colors">Vision</a>
+      <a href="#testimonials" class="mobile-nav-link text-lg font-medium text-slate-700 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition-colors">Testimonials</a>
+      <a href="#faq" class="mobile-nav-link text-lg font-medium text-slate-700 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition-colors">FAQ</a>
+    </nav>
+
+    <div class="pt-6 border-t border-slate-200 dark:border-gray-800 flex flex-col space-y-4">
+      <a href="#login" class="mobile-nav-link text-center font-medium text-slate-700 dark:text-gray-300 hover:text-slate-950 dark:hover:text-white py-3 border border-slate-200 dark:border-gray-800 hover:bg-slate-100 dark:hover:bg-gray-800 rounded-xl transition-all">Login</a>
+      <a href="#contact" class="mobile-nav-link text-center bg-blue-600 hover:bg-blue-700 active:scale-95 text-white font-semibold py-3.5 rounded-xl transition-all shadow-sm">Start Free Trial</a>
+    </div>
+  </div>
+
+  <!-- Main Content Wrapper -->
+  <main class="relative z-10">
+
+    <!-- Hero Section -->
+    <section id="hero" class="relative pt-32 pb-24 md:pt-48 md:pb-36 overflow-hidden min-h-screen flex items-center bg-black">
+      <!-- Interactive Reactive Lines Canvas Background -->
+      <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none" id="hero-canvas-container">
+        <canvas id="hero-canvas" class="w-full h-full block"></canvas>
+      </div>
+      
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          
+          <!-- Left Column Content -->
+          <div class="lg:col-span-7 space-y-8 text-left reveal-item">
+            <!-- Badge announcement -->
+            <!-- <div class="inline-flex items-center space-x-2 bg-blue-50 dark:bg-[#1C1C1E]/50 border border-blue-100 dark:border-[#2C2C2E] px-3.5 py-1.5 rounded-full text-xs font-semibold text-blue-700 dark:text-blue-400">
+              <span class="flex h-2 w-2 relative">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+              </span>
+              <span>NexusAgent V2.0 Engine Released</span>
+            </div> -->
+            
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-none text-slate-900 dark:text-white">
+              Orchestrate Enterprise <br class="hidden sm:inline">
+              Workflows with <span class="text-blue-600 dark:text-blue-400 random-letter-swap">Autonomous Agents</span>
+            </h1>
+            
+            <p class="text-lg md:text-xl text-slate-650 dark:text-gray-400 max-w-2xl font-light">
+              NexusAI is the standard autonomous agent fabric for enterprise systems. Orchestrate database operations, API networks, and multi-LLM instances through self-healing execution loops.
+            </p>
+            
+            <!-- Dual Call to Actions -->
+            <div class="flex flex-col sm:flex-row items-stretch sm:items-center space-y-4 sm:space-y-0 sm:space-x-4">
+              <a href="#contact" class="text-center bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-4 rounded-lg flex items-center justify-center space-x-3 transition-all duration-200 shadow-md whitespace-nowrap">
+                <span>Deploy Free Cluster</span>
+                <i data-lucide="play-circle" class="w-5 h-5"></i>
+              </a>
+              
+              <a href="#features" class="text-center border border-slate-300 dark:border-gray-800 hover:border-slate-400 dark:hover:border-gray-700 bg-slate-100 dark:bg-gray-900/30 hover:bg-slate-200 dark:hover:bg-gray-800/40 text-slate-800 dark:text-[#F9FAFB] font-medium px-8 py-4 rounded-lg flex items-center justify-center space-x-3 transition-all duration-200 whitespace-nowrap">
+                <i data-lucide="terminal" class="w-5 h-5 text-slate-500 dark:text-gray-400"></i>
+                <span>Explore Architecture</span>
+              </a>
+            </div>
+
+            <!-- Social Proof Statistics -->
+            <div class="pt-8 border-t border-slate-200 dark:border-[#2C2C2E] grid grid-cols-3 gap-4">
+              <div>
+                <div class="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white font-heading">15M+</div>
+                <div class="text-xs text-slate-500 uppercase tracking-wider mt-1">Daily Agent Steps</div>
+              </div>
+              <div>
+                <div class="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white font-heading">8.4ms</div>
+                <div class="text-xs text-slate-550 dark:text-gray-500 uppercase tracking-wider mt-1">Vector Query Latency</div>
+              </div>
+              <div>
+                <div class="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white font-heading">99.99%</div>
+                <div class="text-xs text-slate-550 dark:text-gray-500 uppercase tracking-wider mt-1">Mesh Cluster Uptime</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column Interactive Dashboard Component -->
+          <div class="lg:col-span-5 reveal-scale-item reveal-delay-1">
+            <div class="glass-panel p-6 rounded-3xl border border-slate-200 dark:border-[#2C2C2E] relative shadow-2xl">
+              <!-- Grid line decorations -->
+              <div class="absolute inset-0 bg-[linear-gradient(to_right,#1f29370c_1px,transparent_1px),linear-gradient(to_bottom,#1f29370c_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"></div>
+              
+              <!-- Dashboard Window Header -->
+              <div class="flex items-center justify-between pb-4 border-b border-slate-200 dark:border-[#2C2C2E] mb-6 relative z-10">
+                <div class="flex items-center space-x-2">
+                  <div class="w-3 h-3 rounded-full bg-slate-350 dark:bg-neutral-800"></div>
+                  <div class="w-3 h-3 rounded-full bg-slate-350 dark:bg-neutral-800"></div>
+                  <div class="w-3 h-3 rounded-full bg-slate-350 dark:bg-neutral-800"></div>
+                  <span class="text-xs text-slate-500 font-mono ml-2">agent-orchestration-mesh</span>
+                </div>
+                <div class="flex items-center space-x-1.5 bg-blue-50 dark:bg-[#1C1C1E]/50 border border-blue-100 dark:border-[#2C2C2E] px-2.5 py-1 rounded-md text-[10px] font-mono text-blue-700 dark:text-blue-400 uppercase tracking-widest">
+                  <span class="w-1.5 h-1.5 rounded-full bg-blue-500 dark:bg-blue-400 animate-pulse mr-1"></span>
+                  live telemetry
+                </div>
+              </div>
+
+              <!-- Interactive System SVG Pipeline -->
+              <div class="relative z-10 bg-slate-100/50 dark:bg-black/40 rounded-2xl p-4 border border-slate-200 dark:border-[#2C2C2E] flex items-center justify-center">
+                <svg width="100%" height="240" viewBox="0 0 340 240" fill="none" xmlns="http://www.w3.org/2000/svg" class="max-w-md">
+                  <!-- Connection Flow Lines -->
+                  <path id="line-1" d="M75 120 H 135" stroke="#D2D2D7" class="svg-flow-line transition-all duration-300 dark:stroke-[#2C2C2E]" stroke-width="1.5" />
+                  <path id="line-2" d="M165 95 V 50 H 255" stroke="#D2D2D7" class="svg-flow-line transition-all duration-300 dark:stroke-[#2C2C2E]" stroke-width="1.5" />
+                  <path id="line-3" d="M165 145 V 190 H 255" stroke="#D2D2D7" class="svg-flow-line transition-all duration-300 dark:stroke-[#2C2C2E]" stroke-width="1.5" />
+                  <path id="line-4" d="M195 120 H 255" stroke="#D2D2D7" class="svg-flow-line transition-all duration-300 dark:stroke-[#2C2C2E]" stroke-width="1.5" />
+
+                  <!-- Nodes (Ingest Node) -->
+                  <g id="node-ingest" data-connects="line-1" class="dashboard-node cursor-pointer">
+                    <circle cx="45" cy="120" r="30" fill="var(--bg-secondary)" stroke="#D2D2D7" stroke-width="2" class="dark:stroke-[#2C2C2E]" />
+                    <rect x="35" y="110" width="20" height="20" rx="4" fill="#2563EB" fill-opacity="0.1" stroke="#2563EB" stroke-width="1.5"/>
+                    <path d="M41 120l3 3 5-5" stroke="#2563EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="45" cy="120" r="33" stroke="#2563EB" stroke-width="1" stroke-opacity="0.3" stroke-dasharray="2 4" />
+                    <text x="45" y="165" fill="#475569" class="dark:fill-[#86868B]" font-size="10" font-family="monospace" text-anchor="middle">Data Ingest</text>
+                  </g>
+
+                  <!-- Nodes (Router Core) -->
+                  <g id="node-llm" data-connects="line-2" class="dashboard-node cursor-pointer">
+                    <rect x="135" y="95" width="60" height="50" rx="8" fill="var(--bg-secondary)" stroke="#D2D2D7" stroke-width="2" class="dark:stroke-[#2C2C2E]" />
+                    <circle cx="165" cy="120" r="12" fill="#2563EB" fill-opacity="0.1" stroke="#2563EB" stroke-width="1.5" />
+                    <path d="M161 116h8v8h-8z" fill="#2563EB" />
+                    <text x="165" y="160" fill="#475569" class="dark:fill-[#86868B]" font-size="10" font-family="monospace" text-anchor="middle">LLM Router</text>
+                  </g>
+
+                  <!-- Nodes (Vector DB) -->
+                  <g id="node-db" data-connects="line-3" class="dashboard-node cursor-pointer">
+                    <circle cx="285" cy="50" r="24" fill="var(--bg-secondary)" stroke="#D2D2D7" stroke-width="2" class="dark:stroke-[#2C2C2E]" />
+                    <path d="M277 46h16v8h-16zm0-8h16v5h-16zm0 16h16v5h-16z" stroke="#2563EB" stroke-width="1.5" stroke-linejoin="round" fill="none" />
+                    <text x="285" y="90" fill="#475569" class="dark:fill-[#86868B]" font-size="10" font-family="monospace" text-anchor="middle">VectorDB</text>
+                  </g>
+
+                  <!-- Nodes (Agent Exec) -->
+                  <g id="node-agent" data-connects="line-4" class="dashboard-node cursor-pointer">
+                    <circle cx="285" cy="190" r="24" fill="var(--bg-secondary)" stroke="#D2D2D7" stroke-width="2" class="dark:stroke-[#2C2C2E]" />
+                    <path d="M280 183l5 5 10-10" stroke="#2563EB" stroke-width="2" stroke-linecap="round" />
+                    <text x="285" y="230" fill="#475569" class="dark:fill-[#86868B]" font-size="10" font-family="monospace" text-anchor="middle">Agent Core</text>
+                  </g>
+
+                  <!-- System Pulse Data Packet -->
+                  <circle r="3.5" fill="#2563EB">
+                    <animateMotion dur="4.2s" repeatCount="indefinite" path="M75 120 H 135 M165 95 V 50 H 255" />
+                  </circle>
+                  <circle r="3.5" fill="#2563EB">
+                    <animateMotion dur="5.5s" repeatCount="indefinite" path="M75 120 H 135 M165 145 V 190 H 255" />
+                  </circle>
+                </svg>
+              </div>
+
+              <!-- Interactive Telemetry Panel -->
+              <div class="mt-5 p-4 rounded-xl bg-slate-100 dark:bg-[#121212] border border-slate-200 dark:border-[#2C2C2E] font-mono text-xs">
+                <div class="flex items-center space-x-2 text-slate-500 dark:text-gray-500 mb-2">
+                  <i data-lucide="activity" class="w-4 h-4 text-blue-655 dark:text-blue-500"></i>
+                  <span>NODE INSPECTOR</span>
+                </div>
+                <p id="dash-details" class="text-slate-600 dark:text-gray-400 leading-relaxed transition-all duration-300 min-h-[36px]">
+                  Hover over dashboard system nodes to inspect live telemetry...
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-24 md:py-32 relative bg-slate-50 dark:bg-neutral-950/20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Header Text -->
+        <div class="text-center max-w-3xl mx-auto mb-20 space-y-4 reveal-item">
+          <h2 class="text-xs uppercase tracking-widest text-blue-600 dark:text-blue-400 font-bold font-mono">Infrastructure Capability</h2>
+          <p class="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">Engineered for <span class="text-blue-600 dark:text-blue-400 random-letter-swap">Unbounded</span> Automation</p>
+          <p class="text-base text-slate-600 dark:text-gray-450">
+            NexusAI replaces chaotic wrapper scripts with a structured agent execution plane. Secure, scalable, and fully observable.
+          </p>
+        </div>
+
+        <!-- 6 Bento Grid Feature Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+               <!-- Card 1 -->
+          <div class="glass-panel p-2 rounded-2xl border border-slate-200 dark:border-[#2C2C2E] flex flex-col justify-between reveal-item relative overflow-hidden group cursor-pointer">
+            <!-- Ambient lava lamp background bubbles -->
+            <div class="group-hover:-top-3 bg-blue-500/[0.015] dark:bg-blue-500/[0.12] -top-12 -left-12 absolute shadow-blue-500/12 dark:shadow-blue-500/60 shadow-inner rounded-xl transition-all ease-in-out group-hover:duration-1000 duration-1000 w-24 h-24 z-0 pointer-events-none"></div>
+            <div class="group-hover:top-60 bg-neutral-500/[0.01] dark:bg-neutral-500/[0.1] top-44 left-14 absolute shadow-neutral-500/10 dark:shadow-neutral-500/40 shadow-inner rounded-xl transition-all ease-in-out group-hover:duration-1000 duration-1000 w-24 h-24 z-0 pointer-events-none"></div>
+            <div class="group-hover:-left-12 bg-indigo-500/[0.015] dark:bg-indigo-500/[0.12] top-24 left-56 absolute shadow-indigo-500/12 dark:shadow-indigo-500/60 shadow-inner rounded-xl transition-all ease-in-out group-hover:duration-1000 duration-1000 w-24 h-24 z-0 pointer-events-none"></div>
+            <div class="group-hover:-top-44 bg-blue-500/[0.015] dark:bg-blue-500/[0.12] top-12 left-12 absolute shadow-blue-500/12 dark:shadow-blue-500/60 shadow-inner rounded-xl transition-all ease-in-out group-hover:duration-1000 duration-1000 w-12 h-12 z-0 pointer-events-none"></div>
+            <div class="group-hover:left-44 bg-neutral-500/[0.01] dark:bg-neutral-500/[0.08] top-12 left-12 absolute shadow-neutral-550/10 dark:shadow-neutral-500/35 shadow-inner rounded-xl transition-all ease-in-out group-hover:duration-1000 duration-1000 w-44 h-44 z-0 pointer-events-none"></div>
+            <div class="group-hover:-left-2 bg-indigo-500/[0.01] dark:bg-indigo-500/[0.1] -top-24 -left-12 absolute shadow-indigo-500/10 dark:shadow-indigo-500/40 shadow-inner rounded-xl transition-all ease-in-out group-hover:duration-1000 duration-1000 w-64 h-64 z-0 pointer-events-none"></div>
+            <div class="group-hover:top-44 bg-blue-500/[0.03] dark:bg-blue-500/[0.18] top-24 left-12 absolute shadow-blue-500/15 dark:shadow-blue-500/70 shadow-inner rounded-xl transition-all ease-in-out group-hover:duration-1000 duration-1000 w-4 h-4 z-0 pointer-events-none"></div>
+            
+            <div class="relative z-10 w-full h-full p-6 bg-white/70 dark:bg-[#141416]/75 backdrop-blur-[6px] rounded-xl flex flex-col justify-between flex-grow">
+              <div class="space-y-6">
+                <div class="w-12 h-12 rounded-xl bg-blue-50 dark:bg-blue-950/15 border border-blue-100 dark:border-blue-900/20 flex items-center justify-center text-blue-600 dark:text-blue-400 transition-colors duration-300">
+                  <i data-lucide="cpu" class="w-6 h-6"></i>
+                </div>
+                <h3 class="text-xl font-bold text-slate-900 dark:text-white">Autonomous Agents</h3>
+                <p class="text-slate-650 dark:text-gray-400 text-sm leading-relaxed font-light">
+                  Self-healing execution loops that analyze obstacles, adapt goals, and run complex tasks until completion.
+                </p>
+              </div>
+              <div class="mt-8 pt-4 border-t border-slate-200 dark:border-[#2C2C2E]/60 flex items-center text-xs text-blue-600 dark:text-blue-400 font-semibold group cursor-pointer">
+                <span>Inspect Agent Spec</span>
+                <i data-lucide="chevron-right" class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform"></i>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="glass-panel p-2 rounded-2xl border border-slate-200 dark:border-[#2C2C2E] flex flex-col justify-between reveal-item reveal-delay-1 relative overflow-hidden group cursor-pointer">
+            <!-- Ambient lava lamp background bubbles -->
+            <div class="group-hover:-top-3 bg-blue-500/[0.015] dark:bg-blue-500/[0.12] -top-12 -left-12 absolute shadow-blue-500/12 dark:shadow-blue-500/60 shadow-inner rounded-xl transition-all ease-in-out group-hover:duration-1000 duration-1000 w-24 h-24 z-0 pointer-events-none"></div>
+            <div class="group-hover:top-60 bg-neutral-500/[0.01] dark:bg-neutral-500/[0.1] top-44 left-14 absolute shadow-neutral-500/10 dark:shadow-neutral-500/40 shadow-inner rounded-xl transition-all ease-in-out group-hover:duration-1000 duration-1000 w-24 h-24 z-0 pointer-events-none"></div>
+            <div class="group-hover:-left-12 bg-indigo-500/[0.015] dark:bg-indigo-500/[0.12] top-24 left-56 absolute shadow-indigo-500/12 dark:shadow-indigo-500/60 shadow-inner rounded-xl transition-all ease-in-out group-hover:duration-1000 duration-1000 w-24 h-24 z-0 pointer-events-none"></div>
+            <div class="group-hover:-top-44 bg-blue-500/[0.015] dark:bg-blue-500/[0.12] top-12 left-12 absolute shadow-blue-500/12 dark:shadow-blue-500/60 shadow-inner rounded-xl transition-all ease-in-out group-hover:duration-1000 duration-1000 w-12 h-12 z-0 pointer-events-none"></div>
+            <div class="group-hover:left-44 bg-neutral-500/[0.01] dark:bg-neutral-500/[0.08] top-12 left-12 absolute shadow-neutral-550/10 dark:shadow-neutral-500/35 shadow-inner rounded-xl transition-all ease-in-out group-hover:duration-1000 duration-1000 w-44 h-44 z-0 pointer-events-none"></div>
+            <div class="group-hover:-left-2 bg-indigo-500/[0.01] dark:bg-indigo-500/[0.1] -top-24 -left-12 absolute shadow-indigo-500/10 dark:shadow-indigo-500/40 shadow-inner rounded-xl transition-all ease-in-out group-hover:duration-1000 duration-1000 w-64 h-64 z-0 pointer-events-none"></div>
+            <div class="group-hover:top-44 bg-blue-500/[0.03] dark:bg-blue-500/[0.18] top-24 left-12 absolute shadow-blue-500/15 dark:shadow-blue-500/70 shadow-inner rounded-xl transition-all ease-in-out group-hover:duration-1000 duration-1000 w-4 h-4 z-0 pointer-events-none"></div>
+            
+            <div class="relative z-10 w-full h-full p-6 bg-white/70 dark:bg-[#141416]/75 backdrop-blur-[6px] rounded-xl flex flex-col justify-between flex-grow">
+              <div class="space-y-6">
+                <div class="w-12 h-12 rounded-xl bg-blue-50 dark:bg-blue-950/15 border border-blue-100 dark:border-blue-900/20 flex items-center justify-center text-blue-600 dark:text-blue-400 transition-colors duration-300">
+                  <i data-lucide="git-branch" class="w-6 h-6"></i>
+                </div>
+                <h3 class="text-xl font-bold text-slate-900 dark:text-white">Neural Pipelines</h3>
+                <p class="text-slate-655 dark:text-gray-440 text-sm leading-relaxed font-light">
+                  Stream dynamic prompts and system tokens across structured execution nodes with standard fallback protocols.
+                </p>
+              </div>
+              <div class="mt-8 pt-4 border-t border-slate-200 dark:border-[#2C2C2E]/60 flex items-center text-xs text-blue-600 dark:text-blue-400 font-semibold group cursor-pointer">
+                <span>View Data Flow</span>
+                <i data-lucide="chevron-right" class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform"></i>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="glass-panel p-2 rounded-2xl border border-slate-200 dark:border-[#2C2C2E] flex flex-col justify-between reveal-item reveal-delay-2 relative overflow-hidden group cursor-pointer">
+            <!-- Ambient lava lamp background bubbles -->
+            <div class="group-hover:-top-3 bg-blue-500/[0.015] dark:bg-blue-500/[0.12] -top-12 -left-12 absolute shadow-blue-500/12 dark:shadow-blue-500/60 shadow-inner rounded-xl transition-all ease-in-out group-hover:duration-1000 duration-1000 w-24 h-24 z-0 pointer-events-none"></div>
+            <div class="group-hover:top-60 bg-neutral-500/[0.01] dark:bg-neutral-500/[0.1] top-44 left-14 absolute shadow-neutral-500/10 dark:shadow-neutral-500/40 shadow-inner rounded-xl transition-all ease-in-out group-hover:duration-1000 duration-1000 w-24 h-24 z-0 pointer-events-none"></div>
+            <div class="group-hover:-left-12 bg-indigo-500/[0.015] dark:bg-indigo-500/[0.12] top-24 left-56 absolute shadow-indigo-500/12 dark:shadow-indigo-500/60 shadow-inner rounded-xl transition-all ease-in-out group-hover:duration-1000 duration-1000 w-24 h-24 z-0 pointer-events-none"></div>
+            <div class="group-hover:-top-44 bg-blue-500/[0.015] dark:bg-blue-500/[0.12] top-12 left-12 absolute shadow-blue-500/12 dark:shadow-blue-500/60 shadow-inner rounded-xl transition-all ease-in-out group-hover:duration-1000 duration-1000 w-12 h-12 z-0 pointer-events-none"></div>
+            <div class="group-hover:left-44 bg-neutral-500/[0.01] dark:bg-neutral-500/[0.08] top-12 left-12 absolute shadow-neutral-550/10 dark:shadow-neutral-500/35 shadow-inner rounded-xl transition-all ease-in-out group-hover:duration-1000 duration-1000 w-44 h-44 z-0 pointer-events-none"></div>
+            <div class="group-hover:-left-2 bg-indigo-500/[0.01] dark:bg-indigo-500/[0.1] -top-24 -left-12 absolute shadow-indigo-500/10 dark:shadow-indigo-500/40 shadow-inner rounded-xl transition-all ease-in-out group-hover:duration-1000 duration-1000 w-64 h-64 z-0 pointer-events-none"></div>
+            <div class="group-hover:top-44 bg-blue-500/[0.03] dark:bg-blue-500/[0.18] top-24 left-12 absolute shadow-blue-500/15 dark:shadow-blue-500/70 shadow-inner rounded-xl transition-all ease-in-out group-hover:duration-1000 duration-1000 w-4 h-4 z-0 pointer-events-none"></div>
+            
+            <div class="relative z-10 w-full h-full p-6 bg-white/70 dark:bg-[#141416]/75 backdrop-blur-[6px] rounded-xl flex flex-col justify-between flex-grow">
+              <div class="space-y-6">
+                <div class="w-12 h-12 rounded-xl bg-blue-50 dark:bg-blue-950/15 border border-blue-100 dark:border-blue-900/20 flex items-center justify-center text-blue-600 dark:text-blue-400 transition-colors duration-300">
+                  <i data-lucide="activity" class="w-6 h-6"></i>
+                </div>
+                <h3 class="text-xl font-bold text-slate-900 dark:text-white">Real-Time Telemetry</h3>
+                <p class="text-slate-655 dark:text-gray-400 text-sm leading-relaxed font-light">
+                  Track agent execution paths, prompt tokens, latencies, and execution costs live in a single unified panel.
+                </p>
+              </div>
+              <div class="mt-8 pt-4 border-t border-slate-200 dark:border-[#2C2C2E]/60 flex items-center text-xs text-blue-600 dark:text-blue-400 font-semibold group cursor-pointer">
+                <span>Launch Dashboard</span>
+                <i data-lucide="chevron-right" class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform"></i>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="glass-panel p-2 rounded-2xl border border-slate-200 dark:border-[#2C2C2E] flex flex-col justify-between reveal-item relative overflow-hidden group cursor-pointer">
+            <!-- Ambient lava lamp background bubbles -->
+            <div class="group-hover:-top-3 bg-blue-500/[0.015] dark:bg-blue-500/[0.12] -top-12 -left-12 absolute shadow-blue-500/12 dark:shadow-blue-500/60 shadow-inner rounded-xl transition-all ease-in-out group-hover:duration-1000 duration-1000 w-24 h-24 z-0 pointer-events-none"></div>
+            <div class="group-hover:top-60 bg-neutral-500/[0.01] dark:bg-neutral-500/[0.1] top-44 left-14 absolute shadow-neutral-500/10 dark:shadow-neutral-500/40 shadow-inner rounded-xl transition-all ease-in-out group-hover:duration-1000 duration-1000 w-24 h-24 z-0 pointer-events-none"></div>
+            <div class="group-hover:-left-12 bg-indigo-500/[0.015] dark:bg-indigo-500/[0.12] top-24 left-56 absolute shadow-indigo-500/12 dark:shadow-indigo-500/60 shadow-inner rounded-xl transition-all ease-in-out group-hover:duration-1000 duration-1000 w-24 h-24 z-0 pointer-events-none"></div>
+            <div class="group-hover:-top-44 bg-blue-500/[0.015] dark:bg-blue-500/[0.12] top-12 left-12 absolute shadow-blue-500/12 dark:shadow-blue-500/60 shadow-inner rounded-xl transition-all ease-in-out group-hover:duration-1000 duration-1000 w-12 h-12 z-0 pointer-events-none"></div>
+            <div class="group-hover:left-44 bg-neutral-500/[0.01] dark:bg-neutral-500/[0.08] top-12 left-12 absolute shadow-neutral-550/10 dark:shadow-neutral-500/35 shadow-inner rounded-xl transition-all ease-in-out group-hover:duration-1000 duration-1000 w-44 h-44 z-0 pointer-events-none"></div>
+            <div class="group-hover:-left-2 bg-indigo-500/[0.01] dark:bg-indigo-500/[0.1] -top-24 -left-12 absolute shadow-indigo-500/10 dark:shadow-indigo-500/40 shadow-inner rounded-xl transition-all ease-in-out group-hover:duration-1000 duration-1000 w-64 h-64 z-0 pointer-events-none"></div>
+            <div class="group-hover:top-44 bg-blue-500/[0.03] dark:bg-blue-500/[0.18] top-24 left-12 absolute shadow-blue-500/15 dark:shadow-blue-500/70 shadow-inner rounded-xl transition-all ease-in-out group-hover:duration-1000 duration-1000 w-4 h-4 z-0 pointer-events-none"></div>
+            
+            <div class="relative z-10 w-full h-full p-6 bg-white/70 dark:bg-[#141416]/75 backdrop-blur-[6px] rounded-xl flex flex-col justify-between flex-grow">
+              <div class="space-y-6">
+                <div class="w-12 h-12 rounded-xl bg-blue-50 dark:bg-blue-950/15 border border-blue-100 dark:border-blue-900/20 flex items-center justify-center text-blue-600 dark:text-blue-400 transition-colors duration-300">
+                  <i data-lucide="shuffle" class="w-6 h-6"></i>
+                </div>
+                <h3 class="text-xl font-bold text-slate-900 dark:text-white">Multi-LLM Orchestration</h3>
+                <p class="text-slate-655 dark:text-gray-400 text-sm leading-relaxed font-light">
+                  Route operations between Claude, Gemini, and local models. Automatically switches based on cost, latency, and capabilities.
+                </p>
+              </div>
+              <div class="mt-8 pt-4 border-t border-slate-200 dark:border-[#2C2C2E]/60 flex items-center text-xs text-blue-600 dark:text-blue-400 font-semibold group cursor-pointer">
+                <span>Compare Models</span>
+                <i data-lucide="chevron-right" class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform"></i>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 5 -->
+          <div class="glass-panel p-2 rounded-2xl border border-slate-200 dark:border-[#2C2C2E] flex flex-col justify-between reveal-item reveal-delay-1 relative overflow-hidden group cursor-pointer">
+            <!-- Ambient lava lamp background bubbles -->
+            <div class="group-hover:-top-3 bg-blue-500/[0.015] dark:bg-blue-500/[0.12] -top-12 -left-12 absolute shadow-blue-500/12 dark:shadow-blue-500/60 shadow-inner rounded-xl transition-all ease-in-out group-hover:duration-1000 duration-1000 w-24 h-24 z-0 pointer-events-none"></div>
+            <div class="group-hover:top-60 bg-neutral-500/[0.01] dark:bg-neutral-500/[0.1] top-44 left-14 absolute shadow-neutral-500/10 dark:shadow-neutral-500/40 shadow-inner rounded-xl transition-all ease-in-out group-hover:duration-1000 duration-1000 w-24 h-24 z-0 pointer-events-none"></div>
+            <div class="group-hover:-left-12 bg-indigo-500/[0.015] dark:bg-indigo-500/[0.12] top-24 left-56 absolute shadow-indigo-500/12 dark:shadow-indigo-500/60 shadow-inner rounded-xl transition-all ease-in-out group-hover:duration-1000 duration-1000 w-24 h-24 z-0 pointer-events-none"></div>
+            <div class="group-hover:-top-44 bg-blue-500/[0.015] dark:bg-blue-500/[0.12] top-12 left-12 absolute shadow-blue-500/12 dark:shadow-blue-500/60 shadow-inner rounded-xl transition-all ease-in-out group-hover:duration-1000 duration-1000 w-12 h-12 z-0 pointer-events-none"></div>
+            <div class="group-hover:left-44 bg-neutral-500/[0.01] dark:bg-neutral-500/[0.08] top-12 left-12 absolute shadow-neutral-550/10 dark:shadow-neutral-500/35 shadow-inner rounded-xl transition-all ease-in-out group-hover:duration-1000 duration-1000 w-44 h-44 z-0 pointer-events-none"></div>
+            <div class="group-hover:-left-2 bg-indigo-500/[0.01] dark:bg-indigo-500/[0.1] -top-24 -left-12 absolute shadow-indigo-500/10 dark:shadow-indigo-500/40 shadow-inner rounded-xl transition-all ease-in-out group-hover:duration-1000 duration-1000 w-64 h-64 z-0 pointer-events-none"></div>
+            <div class="group-hover:top-44 bg-blue-500/[0.03] dark:bg-blue-500/[0.18] top-24 left-12 absolute shadow-blue-500/15 dark:shadow-blue-500/70 shadow-inner rounded-xl transition-all ease-in-out group-hover:duration-1000 duration-1000 w-4 h-4 z-0 pointer-events-none"></div>
+            
+            <div class="relative z-10 w-full h-full p-6 bg-white/70 dark:bg-[#141416]/75 backdrop-blur-[6px] rounded-xl flex flex-col justify-between flex-grow">
+              <div class="space-y-6">
+                <div class="w-12 h-12 rounded-xl bg-blue-50 dark:bg-blue-950/15 border border-blue-100 dark:border-blue-900/20 flex items-center justify-center text-blue-600 dark:text-blue-400 transition-colors duration-300">
+                  <i data-lucide="shield" class="w-6 h-6"></i>
+                </div>
+                <h3 class="text-xl font-bold text-slate-900 dark:text-white">Enterprise Security</h3>
+                <p class="text-slate-655 dark:text-gray-400 text-sm leading-relaxed font-light">
+                  Isolated runner sandboxes, zero-retention data logging, encryption at rest, and full SOC2/ISO compliance.
+                </p>
+              </div>
+              <div class="mt-8 pt-4 border-t border-slate-200 dark:border-[#2C2C2E]/60 flex items-center text-xs text-blue-600 dark:text-blue-400 font-semibold group cursor-pointer">
+                <span>Read Security Whitepaper</span>
+                <i data-lucide="chevron-right" class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform"></i>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 6 -->
+          <div class="glass-panel p-2 rounded-2xl border border-slate-200 dark:border-[#2C2C2E] flex flex-col justify-between reveal-item reveal-delay-2 relative overflow-hidden group cursor-pointer">
+            <!-- Ambient lava lamp background bubbles -->
+            <div class="group-hover:-top-3 bg-blue-500/[0.015] dark:bg-blue-500/[0.12] -top-12 -left-12 absolute shadow-blue-500/12 dark:shadow-blue-500/60 shadow-inner rounded-xl transition-all ease-in-out group-hover:duration-1000 duration-1000 w-24 h-24 z-0 pointer-events-none"></div>
+            <div class="group-hover:top-60 bg-neutral-500/[0.01] dark:bg-neutral-500/[0.1] top-44 left-14 absolute shadow-neutral-500/10 dark:shadow-neutral-500/40 shadow-inner rounded-xl transition-all ease-in-out group-hover:duration-1000 duration-1000 w-24 h-24 z-0 pointer-events-none"></div>
+            <div class="group-hover:-left-12 bg-indigo-500/[0.015] dark:bg-indigo-500/[0.12] top-24 left-56 absolute shadow-indigo-500/12 dark:shadow-indigo-500/60 shadow-inner rounded-xl transition-all ease-in-out group-hover:duration-1000 duration-1000 w-24 h-24 z-0 pointer-events-none"></div>
+            <div class="group-hover:-top-44 bg-blue-500/[0.015] dark:bg-blue-500/[0.12] top-12 left-12 absolute shadow-blue-500/12 dark:shadow-blue-500/60 shadow-inner rounded-xl transition-all ease-in-out group-hover:duration-1000 duration-1000 w-12 h-12 z-0 pointer-events-none"></div>
+            <div class="group-hover:left-44 bg-neutral-500/[0.01] dark:bg-neutral-500/[0.08] top-12 left-12 absolute shadow-neutral-550/10 dark:shadow-neutral-500/35 shadow-inner rounded-xl transition-all ease-in-out group-hover:duration-1000 duration-1000 w-44 h-44 z-0 pointer-events-none"></div>
+            <div class="group-hover:-left-2 bg-indigo-500/[0.01] dark:bg-indigo-500/[0.1] -top-24 -left-12 absolute shadow-indigo-500/10 dark:shadow-indigo-500/40 shadow-inner rounded-xl transition-all ease-in-out group-hover:duration-1000 duration-1000 w-64 h-64 z-0 pointer-events-none"></div>
+            <div class="group-hover:top-44 bg-blue-500/[0.03] dark:bg-blue-500/[0.18] top-24 left-12 absolute shadow-blue-500/15 dark:shadow-blue-500/70 shadow-inner rounded-xl transition-all ease-in-out group-hover:duration-1000 duration-1000 w-4 h-4 z-0 pointer-events-none"></div>
+            
+            <div class="relative z-10 w-full h-full p-6 bg-white/70 dark:bg-[#141416]/75 backdrop-blur-[6px] rounded-xl flex flex-col justify-between flex-grow">
+              <div class="space-y-6">
+                <div class="w-12 h-12 rounded-xl bg-blue-50 dark:bg-blue-950/15 border border-blue-100 dark:border-blue-900/20 flex items-center justify-center text-blue-600 dark:text-blue-400 transition-colors duration-300">
+                  <i data-lucide="database" class="w-6 h-6"></i>
+                </div>
+                <h3 class="text-xl font-bold text-slate-900 dark:text-white">Vector Embeddings</h3>
+                <p class="text-slate-655 dark:text-gray-400 text-sm leading-relaxed font-light">
+                  Sync and query vector data seamlessly. Features sub-10ms similarity searches across billions of parameters.
+                </p>
+              </div>
+              <div class="mt-8 pt-4 border-t border-slate-200 dark:border-[#2C2C2E]/60 flex items-center text-xs text-blue-600 dark:text-blue-400 font-semibold group cursor-pointer">
+                <span>Embeddings API</span>
+                <i data-lucide="chevron-right" class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform"></i>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 md:py-32 relative overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+          
+          <!-- Left vision column -->
+          <div class="lg:col-span-6 space-y-8 reveal-item">
+            <h2 class="text-xs uppercase tracking-widest text-blue-600 dark:text-blue-400 font-bold font-mono">Platform Vision</h2>
+            <p class="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">The Fabric of <span class="text-blue-600 dark:text-blue-400 random-letter-swap">Next-Gen</span> Operations</p>
+            <p class="text-slate-600 dark:text-gray-400 leading-relaxed font-light">
+              NexusAI was built on the thesis that standalone models are not enough. True enterprise efficiency requires autonomous networks that can execute complex multi-step workflows without human intervention.
+            </p>
+            
+            <div class="space-y-4">
+              <div class="flex items-start space-x-4">
+                <div class="mt-1 flex-shrink-0 w-6 h-6 bg-blue-50 dark:bg-[#1C1C1E] border border-blue-100 dark:border-[#2C2C2E] text-blue-600 dark:text-blue-400 rounded-lg flex items-center justify-center">
+                  <i data-lucide="check" class="w-4 h-4"></i>
+                </div>
+                <div>
+                  <h4 class="font-bold text-slate-900 dark:text-white text-base">Self-Healing Execution</h4>
+                  <p class="text-sm text-slate-600 dark:text-gray-400 mt-1">If an API endpoint changes, agents automatically adjust payloads to guarantee continuity.</p>
+                </div>
+              </div>
+              
+              <div class="flex items-start space-x-4">
+                <div class="mt-1 flex-shrink-0 w-6 h-6 bg-blue-50 dark:bg-[#1C1C1E] border border-blue-100 dark:border-[#2C2C2E] text-blue-600 dark:text-blue-400 rounded-lg flex items-center justify-center">
+                  <i data-lucide="check" class="w-4 h-4"></i>
+                </div>
+                <div>
+                  <h4 class="font-bold text-slate-900 dark:text-white text-base">Cost-Centric Routing</h4>
+                  <p class="text-sm text-slate-600 dark:text-gray-400 mt-1">Minimize execution costs dynamically by offloading simple queries to smaller local models.</p>
+                </div>
+              </div>
+            </div>
+          </div>          <!-- Right asymmetric metrics Bento Grid -->
+          <div class="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-6 reveal-scale-item reveal-delay-1">
+            
+            <!-- Metric Card 1 -->
+            <div class="vision-card">
+              <div class="vision-card-content">
+                <i data-lucide="clock" class="w-6 h-6 text-blue-600 dark:text-blue-400"></i>
+                <div>
+                  <div class="text-3xl font-extrabold text-slate-900 dark:text-white">99.9%</div>
+                  <div class="text-sm text-slate-500 dark:text-gray-500 font-medium mt-1">SLA Uptime Guarantee</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Metric Card 2 (Bento offset) -->
+            <div class="vision-card sm:translate-y-4">
+              <div class="vision-card-content">
+                <i data-lucide="zap" class="w-6 h-6 text-blue-600 dark:text-blue-400"></i>
+                <div>
+                  <div class="text-3xl font-extrabold text-slate-900 dark:text-white">15M+</div>
+                  <div class="text-sm text-slate-500 dark:text-gray-500 font-medium mt-1">Automated Workflows</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Metric Card 3 -->
+            <div class="vision-card">
+              <div class="vision-card-content">
+                <i data-lucide="trending-up" class="w-6 h-6 text-blue-600 dark:text-blue-400"></i>
+                <div>
+                  <div class="text-3xl font-extrabold text-slate-900 dark:text-white">40%</div>
+                  <div class="text-sm text-slate-500 dark:text-gray-500 font-medium mt-1">Efficiency Gain</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Metric Card 4 (Bento offset) -->
+            <div class="vision-card sm:translate-y-4">
+              <div class="vision-card-content">
+                <i data-lucide="git-merge" class="w-6 h-6 text-blue-600 dark:text-blue-400"></i>
+                <div>
+                  <div class="text-3xl font-extrabold text-slate-900 dark:text-white">&lt; 10ms</div>
+                  <div class="text-sm text-slate-500 dark:text-gray-500 font-medium mt-1">Vector DB Latency</div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-24 md:py-32 relative bg-slate-50 dark:bg-neutral-950/20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Header Text -->
+        <div class="text-center max-w-3xl mx-auto mb-20 space-y-4 reveal-item">
+          <h2 class="text-xs uppercase tracking-widest text-blue-600 dark:text-blue-400 font-bold font-mono">Customer Proof</h2>
+          <p class="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">Trusted by <span class="text-blue-600 dark:text-blue-400 random-letter-swap">Leading</span> Teams</p>
+          <p class="text-base text-slate-600 dark:text-gray-400">
+            See how scaling businesses trust NexusAI to handle their background agent logic.
+          </p>
+        </div>
+
+        <!-- Review Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          
+          <!-- Testimonial 1 -->
+          <div class="glass-panel p-8 rounded-2xl border border-slate-200 dark:border-[#2C2C2E] flex flex-col justify-between reveal-item">
+            <div class="space-y-6">
+              <!-- Rating Stars -->
+              <div class="flex items-center space-x-1 text-amber-500">
+                <i data-lucide="star" class="w-4 h-4 fill-amber-500"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-amber-500"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-amber-500"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-amber-500"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-amber-500"></i>
+              </div>
+              <p class="text-slate-700 dark:text-gray-300 text-sm leading-relaxed italic font-light">
+                "NexusAI allowed us to replace a cluster of fragile microservices with single autonomous agents. Our pipeline complexity dropped by 60% in less than a month."
+              </p>
+            </div>
+            
+            <div class="mt-8 pt-6 border-t border-slate-200 dark:border-[#2C2C2E] flex items-center space-x-4">
+              <div class="w-12 h-12 rounded-full bg-slate-200 dark:bg-neutral-800 flex items-center justify-center text-slate-700 dark:text-white font-bold text-sm">
+                ML
+              </div>
+              <div>
+                <h4 class="font-bold text-slate-900 dark:text-white text-sm">Marcus Lin</h4>
+                <p class="text-xs text-slate-500 dark:text-gray-500 font-medium mt-0.5">CTO at ScaleTech</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 2 -->
+          <div class="glass-panel p-8 rounded-2xl border border-slate-200 dark:border-[#2C2C2E] flex flex-col justify-between reveal-item reveal-delay-1">
+            <div class="space-y-6">
+              <div class="flex items-center space-x-1 text-amber-500">
+                <i data-lucide="star" class="w-4 h-4 fill-amber-500"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-amber-500"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-amber-500"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-amber-500"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-amber-500"></i>
+              </div>
+              <p class="text-slate-700 dark:text-gray-300 text-sm leading-relaxed italic font-light">
+                "Data privacy was our primary blocker for integrating LLM agents. NexusAI's isolated runner networks solved this instantly. Truly enterprise-grade."
+              </p>
+            </div>
+            
+            <div class="mt-8 pt-6 border-t border-slate-200 dark:border-[#2C2C2E] flex items-center space-x-4">
+              <div class="w-12 h-12 rounded-full bg-slate-200 dark:bg-neutral-800 flex items-center justify-center text-slate-700 dark:text-white font-bold text-sm">
+                SK
+              </div>
+              <div>
+                <h4 class="font-bold text-slate-900 dark:text-white text-sm">Sarah Kincaid</h4>
+                <p class="text-xs text-slate-500 dark:text-gray-500 font-medium mt-0.5">Director of Infrastructure at Voxel Labs</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 3 -->
+          <div class="glass-panel p-8 rounded-2xl border border-slate-200 dark:border-[#2C2C2E] flex flex-col justify-between reveal-item reveal-delay-2">
+            <div class="space-y-6">
+              <div class="flex items-center space-x-1 text-amber-500">
+                <i data-lucide="star" class="w-4 h-4 fill-amber-500"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-amber-500"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-amber-500"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-amber-500"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-amber-500"></i>
+              </div>
+              <p class="text-slate-700 dark:text-gray-300 text-sm leading-relaxed italic font-light">
+                "The Multi-LLM routing is a game changer. We dynamically fallback between models, cutting API costs by 45% while preserving logic outputs."
+              </p>
+            </div>
+            
+            <div class="mt-8 pt-6 border-t border-slate-200 dark:border-[#2C2C2E] flex items-center space-x-4">
+              <div class="w-12 h-12 rounded-full bg-slate-200 dark:bg-neutral-800 flex items-center justify-center text-slate-700 dark:text-white font-bold text-sm">
+                DH
+              </div>
+              <div>
+                <h4 class="font-bold text-slate-900 dark:text-white text-sm">David Hirst</h4>
+                <p class="text-xs text-slate-500 dark:text-gray-500 font-medium mt-0.5">Head of AI at CloudScale</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section (Accordion) -->
+    <section id="faq" class="py-24 md:py-32 relative">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Header Text -->
+        <div class="text-center max-w-3xl mx-auto mb-20 space-y-4 reveal-item">
+          <h2 class="text-xs uppercase tracking-widest text-blue-600 dark:text-blue-400 font-bold font-mono">Answering Questions</h2>
+          <p class="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">Frequently Answered Operations</p>
+          <p class="text-base text-slate-650 dark:text-gray-400">
+            Everything you need to know about setting up, securing, and deploying NexusAI.
+          </p>
+        </div>
+
+        <!-- FAQ Accordion List -->
+        <div class="space-y-4 reveal-item">
+          
+          <!-- Accordion Item 1 -->
+          <div class="glass-panel rounded-2xl border border-slate-200 dark:border-[#2C2C2E] overflow-hidden">
+            <button class="faq-trigger w-full flex items-center justify-between p-6 text-left text-slate-900 dark:text-white font-semibold text-base sm:text-lg focus:outline-none" aria-expanded="false" aria-controls="faq-panel-1">
+              <span>How does NexusAI ensure data privacy for enterprise workflows?</span>
+              <i data-lucide="chevron-down" class="faq-chevron w-5 h-5 text-slate-500 dark:text-gray-400"></i>
+            </button>
+            <div id="faq-panel-1" class="faq-panel" role="region" aria-labelledby="faq-trigger-1">
+              <div class="p-6 pt-0 text-sm sm:text-base text-slate-600 dark:text-gray-400 leading-relaxed border-t border-slate-200 dark:border-[#2C2C2E]">
+                NexusAI operates isolated sandbox runner environments. We enforce zero-retention logging guidelines for prompt payloads, meaning your company data is never used to train global LLM models. All communication channels are protected with end-to-end TLS encryption.
+              </div>
+            </div>
+          </div>
+
+          <!-- Accordion Item 2 -->
+          <div class="glass-panel rounded-2xl border border-slate-200 dark:border-gray-800 overflow-hidden">
+            <button class="faq-trigger w-full flex items-center justify-between p-6 text-left text-slate-900 dark:text-white font-semibold text-base sm:text-lg focus:outline-none" aria-expanded="false" aria-controls="faq-panel-2">
+              <span>Which LLMs are supported out-of-the-box?</span>
+              <i data-lucide="chevron-down" class="faq-chevron w-5 h-5 text-slate-500 dark:text-gray-400"></i>
+            </button>
+            <div id="faq-panel-2" class="faq-panel" role="region" aria-labelledby="faq-trigger-2">
+              <div class="p-6 pt-0 text-sm sm:text-base text-slate-600 dark:text-gray-400 leading-relaxed border-t border-slate-200 dark:border-[#2C2C2E]">
+                We support direct connections with Google Gemini, Anthropic Claude, OpenAI GPT models, and Cohere. You can also connect local open-weights models (like Llama 3 or Mistral) hosted inside your private clusters via standard HuggingFace or vLLM endpoints.
+              </div>
+            </div>
+          </div>
+
+          <!-- Accordion Item 3 -->
+          <div class="glass-panel rounded-2xl border border-slate-200 dark:border-[#2C2C2E] overflow-hidden">
+            <button class="faq-trigger w-full flex items-center justify-between p-6 text-left text-slate-900 dark:text-white font-semibold text-base sm:text-lg focus:outline-none" aria-expanded="false" aria-controls="faq-panel-3">
+              <span>Can we deploy NexusAI on-premises or in our private cloud?</span>
+              <i data-lucide="chevron-down" class="faq-chevron w-5 h-5 text-slate-500 dark:text-gray-400"></i>
+            </button>
+            <div id="faq-panel-3" class="faq-panel" role="region" aria-labelledby="faq-trigger-3">
+              <div class="p-6 pt-0 text-sm sm:text-base text-slate-600 dark:text-gray-400 leading-relaxed border-t border-slate-200 dark:border-[#2C2C2E]">
+                Yes, our Enterprise tier supports VPC and self-hosted Kubernetes deployments (AWS EKS, GCP GKE, Azure AKS) via standard Helm charts. We provide full support for air-gapped systems requiring zero egress networks.
+              </div>
+            </div>
+          </div>
+
+          <!-- Accordion Item 4 -->
+          <div class="glass-panel rounded-2xl border border-slate-200 dark:border-[#2C2C2E] overflow-hidden">
+            <button class="faq-trigger w-full flex items-center justify-between p-6 text-left text-slate-900 dark:text-white font-semibold text-base sm:text-lg focus:outline-none" aria-expanded="false" aria-controls="faq-panel-4">
+              <span>How does the pricing scale as task volume increases?</span>
+              <i data-lucide="chevron-down" class="faq-chevron w-5 h-5 text-slate-500 dark:text-gray-400"></i>
+            </button>
+            <div id="faq-panel-4" class="faq-panel" role="region" aria-labelledby="faq-trigger-4">
+              <div class="p-6 pt-0 text-sm sm:text-base text-slate-600 dark:text-gray-400 leading-relaxed border-t border-slate-200 dark:border-[#2C2C2E]">
+                We use a consumption-based pricing model calculated on "agent executions". Our standard plans scale smoothly based on concurrent active loops. High-volume enterprise customers benefit from custom volume discounts and fixed-price cluster allocations.
+              </div>
+            </div>
+          </div>
+
+          <!-- Accordion Item 5 -->
+          <div class="glass-panel rounded-2xl border border-slate-200 dark:border-[#2C2C2E] overflow-hidden">
+            <button class="faq-trigger w-full flex items-center justify-between p-6 text-left text-slate-900 dark:text-white font-semibold text-base sm:text-lg focus:outline-none" aria-expanded="false" aria-controls="faq-panel-5">
+              <span>What level of support does NexusAI provide for enterprise plans?</span>
+              <i data-lucide="chevron-down" class="faq-chevron w-5 h-5 text-slate-500 dark:text-gray-400"></i>
+            </button>
+            <div id="faq-panel-5" class="faq-panel" role="region" aria-labelledby="faq-trigger-5">
+              <div class="p-6 pt-0 text-sm sm:text-base text-slate-600 dark:text-gray-400 leading-relaxed border-t border-slate-200 dark:border-[#2C2C2E]">
+                Enterprise tiers include 24/7 dedicated engineering support, 30-minute SLA resolution guarantees, shared Slack/Teams channels with architectural leads, and weekly configuration audits to optimize agent latencies and cost envelopes.
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 md:py-32 relative bg-slate-50 dark:bg-neutral-950/20">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Header Text -->
+        <div class="text-center max-w-2xl mx-auto mb-16 space-y-4 reveal-item">
+          <h2 class="text-xs uppercase tracking-widest text-blue-650 dark:text-blue-400 font-bold font-mono">Connect With Us</h2>
+          <p class="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">Deploy Your Agent Cluster</p>
+          <p class="text-base text-slate-650 dark:text-gray-400">
+            Submit your information below to configure an enterprise pilot or request developer sandbox credentials.
+          </p>
+        </div>
+
+        <!-- Form Panel -->
+        <div class="glass-panel p-8 sm:p-12 rounded-3xl border border-slate-200 dark:border-[#2C2C2E] reveal-scale-item">
+          <form id="contact-form" novalidate class="space-y-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              
+              <!-- Full Name Field -->
+              <div class="space-y-2">
+                <label for="contact-name" class="block text-sm font-semibold text-slate-700 dark:text-gray-300">Full Name</label>
+                <input type="text" id="contact-name" name="name" class="w-full bg-slate-50/65 dark:bg-black/65 border border-slate-300 dark:border-[#2C2C2E] focus:border-blue-500 focus:ring-1 focus:ring-blue-500 text-slate-900 dark:text-white rounded-xl py-3.5 px-4 outline-none transition duration-200" placeholder="Jane Doe" required aria-required="true">
+                <div id="error-name" class="error-msg" role="alert"></div>
+              </div>
+
+              <!-- Business Email Field -->
+              <div class="space-y-2">
+                <label for="contact-email" class="block text-sm font-semibold text-slate-700 dark:text-gray-300">Business Email</label>
+                <input type="email" id="contact-email" name="email" class="w-full bg-slate-50/65 dark:bg-black/65 border border-slate-300 dark:border-[#2C2C2E] focus:border-blue-500 focus:ring-1 focus:ring-blue-500 text-slate-900 dark:text-white rounded-xl py-3.5 px-4 outline-none transition duration-200" placeholder="jane@company.com" required aria-required="true">
+                <div id="error-email" class="error-msg" role="alert"></div>
+              </div>
+
+            </div>
+
+            <!-- Company Size Dropdown -->
+            <div class="space-y-2">
+              <label for="contact-company-size" class="block text-sm font-semibold text-slate-700 dark:text-gray-300">Company Size</label>
+              <select id="contact-company-size" name="companySize" class="w-full bg-slate-50/65 dark:bg-black/65 border border-slate-300 dark:border-[#2C2C2E] focus:border-blue-500 focus:ring-1 focus:ring-blue-500 text-slate-900 dark:text-white rounded-xl py-3.5 px-4 outline-none transition duration-200 appearance-none cursor-pointer" required aria-required="true">
+                <option value="" disabled selected>Select company headcount...</option>
+                <option value="1-50">1 - 50 Employees</option>
+                <option value="51-250">51 - 250 Employees</option>
+                <option value="251-1000">251 - 1000 Employees</option>
+                <option value="1000+">1000+ Employees (Enterprise)</option>
+              </select>
+              <div id="error-company-size" class="error-msg" role="alert"></div>
+            </div>
+
+            <!-- Message Textbox -->
+            <div class="space-y-2">
+              <label for="contact-message" class="block text-sm font-semibold text-slate-700 dark:text-gray-300">Message / Use Case</label>
+              <textarea id="contact-message" name="message" rows="5" class="w-full bg-slate-50/65 dark:bg-black/65 border border-slate-300 dark:border-[#2C2C2E] focus:border-blue-500 focus:ring-1 focus:ring-blue-500 text-slate-900 dark:text-white rounded-xl py-3.5 px-4 outline-none transition duration-200 resize-y" placeholder="Describe the enterprise workflows or agent structures you would like to automate..." required aria-required="true"></textarea>
+              <div id="error-message" class="error-msg" role="alert"></div>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="pt-4">
+              <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-6 rounded-lg flex items-center justify-center space-x-2 transition duration-200 shadow-md">
+                <span>Submit Configuration Inquiry</span>
+                <i data-lucide="send" class="w-4 h-4"></i>
+              </button>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer Section -->
+  <footer class="relative bg-slate-50 dark:bg-slate-950 pt-20 pb-10 z-10 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Footer Columns -->
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-12 pb-16 border-b border-slate-200 dark:border-[#2C2C2E]">
+        
+        <!-- Logo and Slogan Column (Span 4) -->
+        <div class="md:col-span-4 space-y-6">
+          <a href="#hero" class="flex items-center group" aria-label="NexusAI Homepage bottom">
+            <span class="text-lg font-extrabold tracking-tight text-slate-900 dark:text-white">NexusAI</span>
+          </a>
+          <p class="text-sm text-slate-600 dark:text-gray-400 leading-relaxed font-light">
+            NexusAI provides high-performance, secure autonomous AI agent infrastructure engineered for modern enterprise systems.
+          </p>
+          <div class="flex items-center space-x-4 text-slate-400 dark:text-gray-500">
+            <a href="#" class="hover:text-slate-900 dark:hover:text-white transition-colors" aria-label="NexusAI Twitter"><i data-lucide="twitter" class="w-5 h-5"></i></a>
+            <a href="#" class="hover:text-slate-900 dark:hover:text-white transition-colors" aria-label="NexusAI Github"><i data-lucide="github" class="w-5 h-5"></i></a>
+            <a href="#" class="hover:text-slate-900 dark:hover:text-white transition-colors" aria-label="NexusAI Linkedin"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
+          </div>
+        </div>
+
+        <!-- 3 Architecture Column Sets (Span 5 total) -->
+        <div class="md:col-span-5 grid grid-cols-2 sm:grid-cols-2 gap-8">
+          <!-- Column 1 -->
+          <div>
+            <h4 class="text-xs uppercase tracking-widest text-slate-900 dark:text-white font-bold font-mono mb-4">Architecture</h4>
+            <ul class="space-y-3 text-sm text-slate-650 dark:text-gray-400">
+              <li><a href="#features" class="hover:text-slate-955 dark:hover:text-white transition-colors">Agent Engine</a></li>
+              <li><a href="#features" class="hover:text-slate-955 dark:hover:text-white transition-colors">Smart Routing</a></li>
+              <li><a href="#about" class="hover:text-slate-955 dark:hover:text-white transition-colors">VPC Sandbox</a></li>
+              <li><a href="#" class="hover:text-slate-955 dark:hover:text-white transition-colors">Changelog</a></li>
+            </ul>
+          </div>
+          <!-- Column 2 -->
+          <div>
+            <h4 class="text-xs uppercase tracking-widest text-slate-900 dark:text-white font-bold font-mono mb-4">Resources</h4>
+            <ul class="space-y-3 text-sm text-slate-650 dark:text-gray-400">
+              <li><a href="#" class="hover:text-slate-955 dark:hover:text-white transition-colors">Documentation</a></li>
+              <li><a href="#" class="hover:text-slate-955 dark:hover:text-white transition-colors">API Reference</a></li>
+              <li><a href="#" class="hover:text-slate-955 dark:hover:text-white transition-colors">System Status</a></li>
+              <li><a href="#" class="hover:text-slate-955 dark:hover:text-white transition-colors">Security Audit</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Newsletter Subscription Column (Span 3) -->
+        <div class="md:col-span-3 space-y-4">
+          <h4 class="text-xs uppercase tracking-widest text-slate-900 dark:text-white font-bold font-mono">Newsletter</h4>
+          <p class="text-xs text-slate-650 dark:text-gray-400 leading-relaxed font-light">
+            Get technical insights on building autonomous agent meshes. No spam.
+          </p>
+          <form class="flex items-center space-x-2 bg-slate-200/50 dark:bg-[#1C1C1E] border border-slate-300 dark:border-[#2C2C2E] rounded-xl p-1.5 focus-within:border-blue-500 transition duration-200">
+            <input type="email" placeholder="mail@company.com" class="w-full bg-transparent text-xs text-slate-900 dark:text-white px-3 py-2 outline-none" required aria-label="Newsletter email input">
+            <button type="submit" class="bg-blue-600 text-white p-2 rounded-lg hover:bg-blue-700 transition-colors" aria-label="Subscribe to newsletter">
+              <i data-lucide="chevron-right" class="w-4 h-4"></i>
+            </button>
+          </form>
+        </div>
+
+      </div>
+
+      <!-- Copyright Details -->
+      <div class="flex flex-col sm:flex-row items-center justify-between pt-8 text-xs text-slate-500">
+        <p>© 2026 MakeRoot Private Limited. All rights reserved.</p>
+        <div class="flex space-x-6 mt-4 sm:mt-0">
+          <a href="#" class="hover:text-slate-800 dark:hover:text-gray-300 transition-colors">Privacy Policy</a>
+          <a href="#" class="hover:text-slate-800 dark:hover:text-gray-300 transition-colors">Terms of Service</a>
+          <a href="#" class="hover:text-slate-800 dark:hover:text-gray-300 transition-colors">Trust Center</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Floating Back-to-Top Button -->
+  <button id="back-to-top" aria-label="Scroll back to top of the page">
+    <i data-lucide="chevron-up" class="w-6 h-6"></i>
+  </button>
+
+  <!-- External JS Modules -->
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/animations.js"></script>
+  <script src="assets/js/validation.js"></script>
+
+  <!-- Lucide Icon Trigger Replacement -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.lucide) {
+        lucide.createIcons();
+      }
+    });
+  </script>
+</body>
+</html>
